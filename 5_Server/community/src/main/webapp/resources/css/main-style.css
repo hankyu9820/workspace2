@@ -1,0 +1,360 @@
+*{box-sizing:border-box; }
+
+/* div{ border: 1px solid black;} */
+
+main{
+    width:1140px;
+    margin:auto; /* 가운데로 오게끔 함 */
+    /* container 안에 자식 요소들이 생길 때 마다 높이가 늘어나서 높이를 안줘도 된다. */
+}
+
+/* 로고 */
+
+header > section:nth-child(1){
+    display:flex;
+    justify-content:center;
+    align-items:center; 
+}
+
+#home-logo{
+    width:120px; 
+    /* 이미지는 width/height 둘 중 하나만 지정 시 
+    나머지 방향의 크기가 같은 비율로 지정됨
+    */
+    height:auto;
+}
+
+/* 검색 스타일 */
+header>section:nth-of-type(2){
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.search-area{
+    width:500px;
+}
+
+.search-area fieldset{
+    padding:2px;
+    margin:0;
+    border: 2px solid #455ba8;
+    border-radius:5px;
+    display:flex; /* 마진 사라짐 */
+}
+
+/* header */
+header{
+    height:200px;
+    display:flex; /* flex 형식으로 변경 -> 내부 요소를 유연하게 정렬/배치 */
+}
+
+header> section:nth-of-type(1){
+    flex-basis : 15%;
+}
+
+header> section:nth-of-type(2){
+    flex-basis : 70%;
+}
+
+header> section:nth-of-type(3){
+    flex-basis : 15%;
+}
+
+#query{
+    padding:10px;
+    font-size:18px;
+    font-weight:bold;
+    width:92%;
+
+    border:none; /* 안에 작은 네모 삭제 */
+    outline:0; /* 클릭하면 굵어지는거 x */
+    /* outline : input 태그에 포커스가 맞춰졌을 때
+                 이를 표현하기 위한 바깥선
+                (테두리보다 바깥에 존재)
+    */
+}
+
+#search-btn{
+  
+    cursor:pointer;/* 손모양 */
+   /* 120% 1.2배 */
+
+    border:0;
+
+}
+
+/* nav */
+nav{
+    height:50px;
+
+    position:sticky;
+    /* sticky : 스크롤이 임계점(최상단)에 도달했을 때 내 화면에 스티커 처럼 붙임
+                평소에는 static(기본 position 상태)
+                임계점 도달 시 fixed(화면 특정 위치에 고정)
+
+        top이든, bottom이든, left이든, right이든 속성이 필수로 작성되어야 한다.
+        어디에 붙여야 될지를 지정해야 함.
+        임계점 도달 시 어느 위치에 부착할지를 지정해야되기 때문에.        
+    */
+    top:0; /* 최상단에 붙임 */
+
+    background-color: white; /* 안비추게하기?? */
+
+    border-bottom:2px solid black;
+
+    z-index : 10; /* z축으로 10만큼 튀어나옴 */
+
+}
+
+nav{
+    width:1140px;
+    height:50px; /* 웹문서의 안 div에 딱맞게 들어가게 w, h 맞춤 */
+}
+
+nav > ul {
+    display:flex;
+    flex-direction:row;/* 기본값이라 좌우로 정렬되는 것*/
+    list-style:none; /* 각 li의 동그라미 없애기 */
+    padding:0;
+    margin:0;
+    height:100%; /* 상위요소의 100% -> nav의 height만큼 채운다. */
+    /* 이렇게하면 ul 밑의 li가 align-items : stretch 기본값 적용이 되어서
+       같이 height:100%가 되는 것 ul display:flex이기 때문에.*/
+}
+
+nav li{
+    /*  flex-grow
+     flex-shrink
+     flex-basis */
+     flex:0 1 150px; /* 팽창, 수축, 기본값 */
+ }
+
+/* a태그 = inline = width, height 지정 불가 */
+
+nav a {
+    display:block;
+    height:100%;
+    text-align:center; /* 글자 가로 가운데 */
+
+    /* 글자 세로 가운데 지정 방법 2가지 */
+    /* line-height:48px; */
+    padding : 11px 0px; /* 위아래만 맞춤 (상하, 좌우) */
+
+    /* 밑줄 없애기 */
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+    color : black;
+    border-radius:5px;
+    transition-duration: 0.2s;
+
+}
+
+nav a:hover{
+    background-color: #455ba8;
+    color:white;
+}
+
+/* content */
+.content{
+    height:800px;
+    display:flex;
+}
+
+.content-1{
+   flex-basis:70%;  /* width:70%; */
+}
+
+.content-2{
+    flex-basis:30%; 
+ }
+
+/* login 스타일 */
+form[name="login-form"]{
+    height:140px;
+    padding:10px;
+    display:flex;
+
+    flex-direction:column; /* 중심축 변경, main axis가 세로가 됨 */
+
+    justify-content:center; /* 중심축에 대한 정렬(세로 가운데 정렬) */
+
+}
+
+form[name="login-form"] > label{
+    font-size:14px;
+    margin-top:5px;
+}
+
+#id-pw-area{
+    margin:0;
+    padding:0;
+    border:1px solid #ddd;
+    display:flex;
+}
+
+/* id/pw input 담긴 영역 */
+#id-pw-area > section:first-child{
+    flex-basis:75%;
+    display:flex;
+    flex-direction:column;
+}
+
+#id-pw-area > section:last-child{
+    flex-basis:25%;
+    display:flex;
+    justify-content:center;
+}
+
+#id-pw-area input{
+    border:0;
+    border-right:1px solid #ddd;
+    flex-basis:50%;
+    padding:5px;
+    outline: 0; /* 마우스 올렸을 때 테두리 없애기 */
+    margin: 0;
+}
+
+#id-pw-area input:first-child{
+    border-bottom:1px solid #ddd;
+}
+
+#id-pw-area input:focus{
+    border:2px solid #455ba8
+}
+
+/* 로그인 버튼 */
+#id-pw-area button{
+    width:100%;
+    border:0;
+    background-color: white;
+    cursor:pointer;
+}
+
+#id-pw-area button:hover{
+    background-color: #455ba8;
+    color:white;
+}
+
+/* 회원가입, ID, PW 찾기 영역 */
+#signup-find-area{
+    margin-top:10px;
+    padding-left:5px;
+}
+
+#signup-find-area > a{
+    color:black;
+    text-decoration:none;
+    font-size:14px;
+}
+
+#signup-find-area span{
+    padding: 0 10px;
+} 
+
+/* 로그인 성공 시 화면  */
+.login-area{
+	height:120px;
+	padding:30px 10px;
+	margin:10px 0;
+
+    border:1px solid #ddd;
+    border-radius:10px;
+    display: flex;
+    align-items: center;
+}
+
+.login-area > a { /* 이미지 감싸고 있는 a태그 */
+    display:block;
+    width:70px;
+    height:70px;
+    border:3px solid #ddd;
+    border-radius:50%;
+}
+
+#member-profile{
+    width:64px;
+    height:64px;
+    border-radius: 50%;
+}
+
+.my-info{   /* 회원 정보 + 로그아웃 영역 */ 
+    width:100%;
+    height:100%;
+    margin-left: 20px;
+
+}
+
+.my-info > div {
+    display:flex;
+    justify-content: space-between;
+}
+
+#nickname{
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: -3px; /* char 범위가 30이어서 10글자까지 오는데 글자가 커서 짤리는거? 방지 */
+}
+
+#logout-btn{ /* 로그아웃 버튼 */
+    color:gray;
+    text-decoration: none;
+    font-size:14px;
+    font-weight:bold;
+    border:2px solid gray;
+    padding:3px 5px;
+    border-radius: 10px;
+
+}
+
+#logout-btn:hover{
+    color:white;
+    background-color: gray;
+}
+
+.my-info > p { /* 이메일 */
+    /* p태그는 기본적으로 마진을 갖고 있음 */
+    margin:0;
+    color:gray;
+}
+
+/* footer */
+footer{
+    height:200px;
+    background-color: #a3add342;
+}
+
+/* footer 스타일 */
+footer{
+    background-color: #a3add342;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    }
+
+    footer span{
+        padding : 0 10px;
+    }
+    
+    footer a{
+        text-decoration:none;
+        color:black;
+       
+    }
+
+    footer > article > *{ 
+        font-size:14px;
+    }
+
+    footer p {
+        font-weight:bold;
+    }
+
+    footer > article {
+        border:0;
+    }
+
+
