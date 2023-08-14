@@ -283,6 +283,89 @@ public class MemberController {
 			return "redirect:/";
 		}
 		
+		// 로그인 전용 화면 이동
+		@GetMapping("/login")
+		public String login() {
+			return "member/login";
+		}
+		
+		// 회원 가입 페이지 이동
+		@GetMapping("/signUp")
+		public String SignUp() {
+			// /WEB-INF/views/member/signUp.jsp forward(요청 위임)
+			// -> ViewResovler가 prefix, suffix를 리턴 값 앞,뒤에 붙임
+			return "member/signUp";
+		}
+		
+		// 회원 가입 진행
+		@PostMapping("/signUp")
+		public String signUp(Member inputMember
+						     , String[] memberAddress
+						     , RedirectAttributes ra) {
+			
+			// -------------- 매개 변수 설명 ----------------
+			// Member inputMember : 커맨드 객체(제출된 파라미터가 저장된 객체)
+			
+			// String[] memberAddress : 
+			// input name="memberAddress" 3개가 저장된 배열
+			
+			// RedirectAttributes ra :
+			// 리다이렉트 시 데이터를 request scope로 전달하는 객체
+			
+			// ------------------------------------------------------
+			
+			// 12345^^^서울시^^^2층
+			// 주소 구분자를 , -> ^^^ 변경
+//			String addr = inputMember.getMemberAddress().replaceAll(",", "^^^");
+//			inputMember.setMemberAddress(addr);
+		//  -> 클라이언트가 ,를 직접 입력하면 문제 발생
+			
+			
+			// 만약 주소를 입력하지 않은 경우(,,) null로 변경
+			
+			if(inputMember.getMemberAddress().equals(",,")) {
+				inputMember.setMemberAddress(null);
+				
+			} else {
+				// String.join("구분자" , String[])
+				// 배열의 요소를 하나의 문자열로 변경
+				// 단, 요소 사이에 "구분자" 추가
+				String addr = String.join("^^^", memberAddress);
+				inputMember.setMemberAddress(addr);
+			}
+			
+			// 회원 가입 서비스 호출
+			int result = service.signUp(inputMember);	
+			
+			// 가입 성공 여부에 따라 주소 결정
+			String path = "redirect:";
+			String message = null;
+			
+			if(result > 0) { // 가입 성공
+				path += "/"; // 메인페이지
+				
+				message = inputMember.getMemberNickname() + "님 환영합니다";
+				
+				
+				
+			} else {
+				// 가입 실패
+				// 회원 가입 페이지
+//				path += "/member/signUp"; // 절대경로
+				path += "signUp"; //  상대경로
+				
+				message = "회원 가입 실패!";
+			}
+			
+			// 리다이렉트 시 session에 잠깐 올라갔다 내려오도록 세팅
+			ra.addFlashAttribute("message" , message);
+			
+			return path;
+		}
+		
+		
+		
+		
 		/* 스프링 예외 처리 방법(3종류, 우선 순위, 중복 사용)
 		 * 
 		 * 1순위 : 메소드 단위로 처리
