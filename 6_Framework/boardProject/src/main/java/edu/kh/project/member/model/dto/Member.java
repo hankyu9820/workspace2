@@ -11,6 +11,7 @@ import lombok.ToString;
 @NoArgsConstructor
 
 public class Member {
+	
 	private int memberNo;
 	private String memberEmail;
 	private String memberPw;

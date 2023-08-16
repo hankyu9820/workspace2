@@ -25,7 +25,7 @@
         <section class="signUp-content">
 
 
-            <form action="/member/signUp" method="POST" name="signUpFrm" id="signUpFrm">
+            <form action="/member/signUp" method="POST" name="signUpFrm" id="signUpFrm" onsubmit="retrun signUpVailate()">
 
 
                 <!-- 이메일 입력 -->
@@ -152,6 +152,7 @@
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
+
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
         function sample6_execDaumPostcode() {
@@ -181,5 +182,6 @@
         }
     </script>
 
+    <script src="/resources/js/member/signUp.js"></script>
 </body>
 </html>
