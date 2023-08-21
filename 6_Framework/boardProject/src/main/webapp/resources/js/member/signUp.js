@@ -464,7 +464,7 @@ sendAuthKeyBtn.addEventListener("click", function(){
 
 });
 
-
+alert
 
 
 // 인증 확인

@@ -120,11 +120,12 @@
         <c:forEach var="boardType" items="${boardTypeList}">
 
                 <li>
-                    <a href="#">${boardType.BOARD_NAME}</a>
+                    <a href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
                 </li>
 
 
         </c:forEach>
+
 
     </ul>
 </nav>
