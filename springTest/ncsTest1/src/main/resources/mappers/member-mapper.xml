@@ -5,7 +5,8 @@
 	
 	<resultMap type="Member" id="memberResultSet">
 		
-		<result property="memberId" column="MEMBER_ID" />
+		<id property="memberId" column="MEMBER_ID"/>
+		
 		<result property="memberPwd" column="memberPwd" />
 		<result property="memberName" column=MEMBER_NM />
 		<result property="memberEnrollDate" column="MEMBER_ENROLL_DT" />
@@ -13,8 +14,8 @@
 	</resultMap>
 
    
-   <select id="loginMember" resultMap="memberResultSet">
-      SELECT MEMBER_ID, MEMBER_ID, MEMBER_ID FROM MEMBER
+   <select id="loginMember" parameterType="Member" resultMap="memberResultSet">
+      SELECT * FROM MEMBER
       WHERE MEMBER_ID = #{memberId}
       AND MEMBER_PW = #{memberPwd}
    </select>

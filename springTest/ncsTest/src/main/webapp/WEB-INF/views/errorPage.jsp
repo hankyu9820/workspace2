@@ -4,11 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>에러 페이지</title>
+
 </head>
 <body>
-
-<p>${msg} </p>
-
+	<script>
+		alert("${message}");
+	</script>
 </body>
+
 </html>

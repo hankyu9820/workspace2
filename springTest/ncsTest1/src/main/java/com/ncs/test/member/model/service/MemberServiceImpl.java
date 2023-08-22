@@ -12,13 +12,12 @@ public class MemberServiceImpl implements MemberService  {
 	@Autowired
 	private MemberDAO dao;
 	
+	
+
 	@Override
-	public Member loginMember(String memberId, String memberPwd) {
+	public Member loginMember(Member inputMember) {
 		
-		
-		Member mem = dao.loginMember(memberId, memberPwd);
-		
-		return mem;
+		return dao.loginMember(inputMember);
 	}
 
 }

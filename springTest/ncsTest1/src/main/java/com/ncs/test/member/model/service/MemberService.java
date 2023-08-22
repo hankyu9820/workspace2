@@ -7,6 +7,7 @@ import com.ncs.test.member.model.vo.Member;
 @Service
 public interface MemberService {
 
-	Member loginMember(String memberId, String memberPwd);
+
+	Member loginMember(Member inputMember);
 
 }
