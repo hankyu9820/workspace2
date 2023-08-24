@@ -45,5 +45,12 @@
 		WHERE MEMBER_NO = #{memberNo}
 	</update>
 	
+	<update id="updateProfileImage">
+		UPDATE MEMBER SET
+		PROFILE_IMG = #{profileImage}
+		WHERE MEMBER_NO = #{memberNo}
+	
+	</update>
+	
 
 </mapper>
