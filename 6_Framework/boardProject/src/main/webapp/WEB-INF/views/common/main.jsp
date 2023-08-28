@@ -141,6 +141,7 @@
                               </c:if>
 
                                <c:if test="${!empty loginMember.profileImage}" >
+                               
                                     <img src="${loginMember.profileImage}" id="memberProfile">
                               </c:if>
 

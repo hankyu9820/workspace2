@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import edu.kh.project.common.utility.Util;
 import edu.kh.project.member.model.dto.Member;
 import edu.kh.project.myPage.model.dao.MyPageDAO;
 
@@ -101,7 +102,7 @@ public class MyPageServiceImpl implements MyPageService {
 			
 			// 1) 파일 이름 변경
 			
-			rename = fileRename(profileImage.getOriginalFilename());
+			rename = Util.fileRename(profileImage.getOriginalFilename());
 			
 		   // 2 바뀐 이름 loginMember에 세팅
 			loginMember.setProfileImage(webPath + rename);
