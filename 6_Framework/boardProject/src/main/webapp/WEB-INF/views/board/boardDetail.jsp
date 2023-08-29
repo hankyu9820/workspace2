@@ -28,6 +28,8 @@
             <!-- 제목 -->
             <h1 class="board-title">${board.boardTitle}  <span> - ${boardName}</span>    </h1>
 
+            
+
             <!-- 프로필 + 닉네임 + 작성일 + 조회수 -->
             <div class="board-header">
                 <div class="board-writer">

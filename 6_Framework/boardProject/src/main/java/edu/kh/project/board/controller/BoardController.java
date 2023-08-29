@@ -82,9 +82,9 @@ public class BoardController {
 	// 게시글 목록 조회
 	@GetMapping("/{boardCode:[0-9]+}") // boardCode는 1자리 이상 숫자
 	public String selectBoardList(@PathVariable("boardCode") int  boardCode
-			, @RequestParam(value="cp",required=false,    defaultValue = "1") int cp
+			, @RequestParam(value="cp",required=false,defaultValue ="1") int cp
 			, Model model){
-								  // 있을수도 있고 없을수도 있다 // 아니면 이거
+				//데이터 전달용 객체		// 있을수도 있고 없을수도 있다 // 아니면 이거
 		// boardCode 확인
 		//System.out.println("boardCode:" + boardCode );
 		
