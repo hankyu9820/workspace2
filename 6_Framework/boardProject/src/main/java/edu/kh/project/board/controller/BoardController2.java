@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -172,6 +173,34 @@ public class BoardController2 {
 			return path;
 		}
 		
-	
+	    @GetMapping("/{boardCode}/{boardNo}/delete")
+	    public String delete( Board board,
+	    					  @PathVariable("boardCode") int boardCode
+							, @PathVariable("boardNo") int boardNo,
+							RedirectAttributes ra) {
+	    	
+    		Map<String, Object> map = new HashMap<String, Object>();
+			
+			map.put("boardCode", boardCode);
+			map.put("boardNo", boardNo);
+			
+			String message = null;
+			String path = "redirect:";
+	    	
+	    	int result = service.delete(map);
+	    	
+	    	
+	    	if(result > 0) {
+	    		message = "게시글이 삭제되었습니다";
+	    		path += "/board/" + boardCode;
+	    	} else {
+	    		message = "게시글 삭제 실패";
+	    		path += "/board/" + boardCode + "/" + boardNo;
+	    	}
+	    	
+	    	 ra.addFlashAttribute("message", message);
+	    	
+	    	return path;
+	    }
 	
 }

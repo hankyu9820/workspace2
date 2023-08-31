@@ -117,7 +117,7 @@
             <%-- 썸네일을 제외하고 나머지 이미지의 시작인덱스 번호 --%>
 
 
-            <%-- 썸네잉이 있을 경우 --%>
+            <%-- 썸네일이 있을 경우 --%>
             <c:if test="${board.imageList[0].imageOrder == 0}">
                 <c:set var="start" value="1"/>
             </c:if>
@@ -217,6 +217,8 @@
         //          -> EL 값이 null 이여도 ""(빈문자열)로 출력
 
         const loginMemberNo = "${loginMember.memberNo}";
+
+        const boardCode = "${boardCode}"
 
         
         console.log(boardNo);

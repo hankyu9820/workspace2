@@ -23,7 +23,7 @@ public class AirPollutionJavaAppRun {
 		
 		// OpenAPI 서버로 요청하고자 하는 url 작성
 		String url = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty";
-		url += "?serviceKey=" + SERVICEKEY; // 서비스키가 제대로 부여되지 않았을 경우 = > SERVICE_KEY_IS_NOT_REGISTERED_ERROR 발생
+		url += "?serviceKey=" + "서비스키"; // 서비스키가 제대로 부여되지 않았을 경우 = > SERVICE_KEY_IS_NOT_REGISTERED_ERROR 발생
 		url += "&sidoName=" + URLEncoder.encode("서울", "UTF-8");
 		url += "&returnType=json";
 		

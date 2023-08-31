@@ -232,6 +232,12 @@ public class BoardServiceImpl2 implements BoardService2 {
 
 	      return rowCount;
 	   }
+
+	@Override
+	public int delete(Map<String, Object> map) {
+		
+		return dao.delete(map);
+	}
 	
 
 }

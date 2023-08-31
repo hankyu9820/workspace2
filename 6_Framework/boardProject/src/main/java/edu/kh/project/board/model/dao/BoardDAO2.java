@@ -74,5 +74,10 @@ public class BoardDAO2 {
 		
 		return sqlSession.insert("boardMapper.imageInsert", img);
 	}
+
+	public int delete(Map<String, Object> map) {
+		
+		return sqlSession.update("boardMapper.delete" , map);
+	}
 	
 }

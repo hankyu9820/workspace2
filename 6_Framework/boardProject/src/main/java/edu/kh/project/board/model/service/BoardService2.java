@@ -2,6 +2,7 @@ package edu.kh.project.board.model.service;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,5 +28,11 @@ public interface BoardService2  {
 	 * @return rowCount
 	 */
 	int boardUpdate(Board board, List<MultipartFile> images, String webPath, String filePath, String deleteList) throws IllegalStateException, IOException;
+
+	/** 게시글 삭제 서비스
+	 * @param map
+	 * @return
+	 */
+	int delete(Map<String, Object> map);
 
 }
