@@ -113,3 +113,5 @@ MANIFEST.MF
 *.log
 .factorypath
 settings.json 
+
+config.propertes
